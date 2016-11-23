@@ -77,7 +77,7 @@ module.exports = {
 			})
 			
 			if(energy.length == 0){
-				spawns = creep.room.find(FIND_STRUCTURES, {
+				let spawns = creep.room.find(FIND_STRUCTURES, {
 					filter: (structure) => {
 						return (
 							structure.structureType == STRUCTURE_CONTAINER

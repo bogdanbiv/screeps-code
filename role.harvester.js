@@ -13,8 +13,9 @@ var roleHarvester = {
       var sources = creep.room.find(FIND_SOURCES)
 
       if(!creep.memory.source){
-        for(source in sources){
-          var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == 'harvester') && (creep.memory.source == source));
+        for(let source in sources){
+          var harvesters = _.filter(Game.creeps,
+              (creep) => (creep.memory.role == 'harvester') && (creep.memory.source == source));
             if(harvesters.length != 1){
               creep.memory.source = source
             }

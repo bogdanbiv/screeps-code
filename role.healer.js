@@ -1,4 +1,4 @@
-roleUpgrader = require('role.upgrader')
+var roleUpgrader = require('role.upgrader')
 
 var roleBuilder = {
 
@@ -30,7 +30,7 @@ var roleBuilder = {
             }
 	    }
 	    else {
-	        spawns = creep.room.find(FIND_STRUCTURES, {
+	        let spawns = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0);
                 }

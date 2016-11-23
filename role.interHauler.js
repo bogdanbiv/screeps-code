@@ -1,4 +1,4 @@
-roleHauler = require('role.hauler')
+var roleHauler = require('role.hauler')
 
 module.exports = {
     run: function(creep){
@@ -29,7 +29,7 @@ module.exports = {
                 var exit = creep.pos.findClosestByRange(exits)
                 creep.moveTo(exit)
             }else{
-                spawns = creep.room.find(FIND_STRUCTURES, {
+                let spawns = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (
                             structure.structureType == STRUCTURE_CONTAINER

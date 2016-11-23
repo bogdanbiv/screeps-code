@@ -12,7 +12,7 @@ module.exports = {
     
     if(options.canAffordOnly){
         var canSpend = options.spawn.energy
-        for(target in targets){
+        for(let target in targets){
             canSpend += targets[target].energy
         }
         console.log(canSpend)
@@ -44,12 +44,12 @@ module.exports = {
   },
 
   creepCost: function(creep){
-    var cost = 0
+    var cost = 0;
 
-    for(part in creep){
-      cost += BODYPART_COST[creep[part]]
+    for(let part in creep){
+      cost += BODYPART_COST[creep[part]];
     }
 
-    return cost
+    return cost;
   }
 }

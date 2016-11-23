@@ -1,4 +1,4 @@
-roleHarvester = require('role.harvester');
+var roleHarvester = require('role.harvester');
 
 var roleUpgrader = {
 
@@ -20,7 +20,7 @@ var roleUpgrader = {
             }
         }
         else {
-            spawns = creep.room.find(FIND_STRUCTURES, {
+            let spawns = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > creep.carryCapacity);
                 }

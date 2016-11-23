@@ -1,5 +1,5 @@
-roleHealer = require('role.healer')
-roleharvester = require('role.harvester')
+var roleHealer = require('role.healer')
+var roleharvester = require('role.harvester')
 
 var roleBuilder = {
 	run: function(creep) {
@@ -16,7 +16,7 @@ var roleBuilder = {
 			var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
 
 			if(targets.length) {
-				target = creep.pos.findClosestByRange(targets)
+				let target = creep.pos.findClosestByRange(targets)
 				if(creep.build(target) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(target);
 				}
@@ -24,7 +24,7 @@ var roleBuilder = {
 				roleHealer.run(creep)
 			}
 		}else{
-			spawns = creep.room.find(FIND_STRUCTURES, {
+			let spawns = creep.room.find(FIND_STRUCTURES, {
 				filter: (structure) => {
 					return (
 					    (structure.structureType == STRUCTURE_CONTAINER  || structure.structureType == STRUCTURE_STORAGE)
@@ -33,7 +33,7 @@ var roleBuilder = {
 				}
 			});
 			
-			emptyExtensions = creep.room.find(FIND_STRUCTURES, {
+			let emptyExtensions = creep.room.find(FIND_STRUCTURES, {
 				filter: (structure) => {
 					return (structure.structureType == STRUCTURE_EXTENSION && structure.energy != structure.energyCapacity);
 				}
@@ -44,7 +44,7 @@ var roleBuilder = {
 			}
 
 			if(spawns.length && emptyExtensions.length == 0){
-				target = creep.pos.findClosestByRange(spawns)
+				let target = creep.pos.findClosestByRange(spawns)
 				if(!(creep.pos.isNearTo(target))){
 					creep.moveTo(target);
 				}else{

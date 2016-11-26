@@ -1,5 +1,6 @@
 module.exports = {
     run: function(creep){
+        
         if(creep.memory.targetRoom != creep.room.name){
             var exits = Game.map.findExit(creep.room, creep.memory.targetRoom)
             var exit = creep.pos.findClosestByRange(exits)
